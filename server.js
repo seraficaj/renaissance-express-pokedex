@@ -22,7 +22,9 @@ app.get("/pokeseed", (req, res) => {
 });
 
 //===GET
-
+app.get("/", (req, res) => {
+  res.redirect("/pokedex");
+});
 app.get("/pokedex", (req, res) => {
   Pokemon.find({}, (err, allPokemon) => {
     if (err) console.log(err);
@@ -51,7 +53,7 @@ app.get("/new", (req, res) => {
 
 app.post("/", (req, res) => {
   Pokemon.create(req.body);
-  res.redirect("/");
+  res.redirect("/pokedex");
 });
 
 //==search
@@ -81,20 +83,20 @@ app.put("/:id", (req, res) => {
     convertedBody,
     { new: true },
     (err, updatedItem) => {
-      res.redirect("/");
+      res.redirect("/pokedex");
     }
   );
 });
 
 app.post("/", (req, res) => {
   Pokemon.create(req.body);
-  res.redirect("/");
+  res.redirect("/pokedex");
 });
 
 //DELETE
 app.delete("/:id", (req, res) => {
   Pokemon.findByIdAndRemove(req.params.id, (err, data) => {
-    res.redirect("/");
+    res.redirect("/pokedex");
   });
 });
 
