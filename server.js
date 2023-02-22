@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 const methodOverride = require("method-override");
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 //===SEED
 
@@ -95,8 +95,8 @@ app.delete("/:id", (req, res) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Pokedex app listening on port: ${port}`);
+app.listen(PORT, () => {
+  console.log(`Pokedex app listening on PORT: ${PORT}`);
 });
 mongoose.connect(process.env.MONGO_URI, () => {
   console.log("The connection was established at" + process.env.MONGO_URI);
