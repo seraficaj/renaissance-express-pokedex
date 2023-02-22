@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    </style>
+  <title>Create New</title>
+</head>
+<body>
+  <h1>Create New Pokemon</h1>
+  <button><a href="/">Back to Pokedex</a></button>
+  <form id="new-pokemon" action="/" method="POST">
+    <input type="text" placeholder="Name" name="name" /><br/>
+    <input type="number" unique="true" placeholder="ID" name="ID" min="151" /><br/>
+    <input type="url" laceholder="Image URL" name="img" /><br/>
+    <input type="text" placeholder="Type" name="type" /><br/>
+    <input type="text" placeholder="Attack" name="attack" /><br/>
+    <input type="text" placeholder="Defense" name="defense" /><br/>
+    <input type="text" placeholder="SpAttack" name="spattack" /><br/>
+    <input type="text" placeholder="SpDefense" name="spdefense" /><br/>
+    <input type="text" placeholder="Speed" name="speed" /><br/>
+    <input  type="submit" value="Add Pokemon"/>
+</form>
+</body>
+</html>
