@@ -23,17 +23,16 @@ app.get("/pokeseed", (req, res) => {
 
 //===GET
 
-app.get("/", (req, res) => {
+app.get("/pokedex", (req, res) => {
   Pokemon.find({}, (err, allPokemon) => {
     if (err) console.log(err);
-    console.log(allPokemon);
     res.render("index.ejs", { allPokemon });
   });
 });
 
 //==SHOW
 
-app.get("/:id", (req, res) => {
+app.get("/pokedex/:id", (req, res) => {
   Pokemon.findById(req.params.id, (err, currentPokemon) => {
     if (err) {
       console.log(err);

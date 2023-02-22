@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const pokeSchema = new mongoose.Schema({
   id: String,
-  name: { type: String, required: true },
+  name: { type: String, required: true, unique: true },
   img: String,
   type: [String],
   stats: {
