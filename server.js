@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
+require("dotenv").config();
 const methodOverride = require("method-override");
 const port = 3000;
 
@@ -20,11 +21,23 @@ app.get("/pokeseed", (req, res) => {
   });
 });
 
+//==SHOW
+
+app.get("/:id", (req, res) => {
+  Pokemon.findById(req.params.id, (err, currentPokemon) => {
+    console.log(currentPokemon);
+    res.render("show.ejs", {
+      pokemon: currentPokemon,
+    });
+  });
+});
+
 //===GET
 
 app.get("/", (req, res) => {
   Pokemon.find({}, (err, allPokemon) => {
-    res.render("index.ejs", { Pokemon: allPokemon });
+    console.log(allPokemon);
+    res.render("index.ejs", { allPokemon });
   });
 });
 
@@ -36,16 +49,6 @@ app.get("/new", (req, res) => {
 app.post("/", (req, res) => {
   Pokemon.create(req.body);
   res.redirect("/");
-});
-
-//==SHOW
-
-app.get("/:id", (req, res) => {
-  Pokemon.findById(req.params.id, (err, currentPokemon) => {
-    res.render("show.ejs", {
-      Pokemon: currentPokemon,
-    });
-  });
 });
 
 //==search
@@ -95,9 +98,6 @@ app.delete("/:id", (req, res) => {
 app.listen(port, () => {
   console.log(`Pokedex app listening on port: ${port}`);
 });
-mongoose.connect(
-  "mongodb+srv://admin:emotion2015@cluster0.fa5khef.mongodb.net/pokemon?retryWrites=true&w=majority",
-  () => {
-    console.log("The connection was established");
-  }
-);
+mongoose.connect(process.env.MONGO_URI, () => {
+  console.log("The connection was established at" + process.env.MONGO_URI);
+});

@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
   <link rel="stylesheet" href="/styles.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-    </style>
-  <title>Pokedex: <%=Pokemon.name%></title>
+  </style>
+  <title>Pokedex: <%=Pokemon.name%>
+  </title>
 </head>
-  <body>
-    <div class="pokemon-head">
-      <h1><%=Pokemon.name%></h1>
-      <img src="<%=Pokemon.img%>"></img>
-      <h4>ID: <%=Pokemon.id%></h4>
-      <button class = "button"><a href="/">Back to Pokedex</a></button>
-      <form id="delete" action="/<%=Pokemon._id%>?_method=DELETE" method="POST">
-        <input class ="delete-button" type="submit" value="Delete"/>
-      </form>
-    </div>
-      <div id="edit-container">
-        <form id="edit-form" action="/<%=Pokemon._id%>?_method=PUT" method="POST">
-          <label>Name:</label><input type="text" name="name" value="<%=Pokemon.name%>" /><br/>
-          <label>Image:</label><input type="url" placeholder="Image URL" name="img" value="<%=Pokemon.img%>"/><br/>
-          <label>Type:</label><input type="text" placeholder="Type" name="type" value="<%=Pokemon.type%>"/><br/>
-          <label>HP:</label><input type="text" placeholder="HP" name="hp" value="<%=Pokemon.stats.hp%>"/><br/>
-          <label>Att:</label><input type="text" placeholder="Attack" name="attack" value="<%=Pokemon.stats.attack%>"/><br/>
-          <label>Def:</label><input type="text" placeholder="Defense" name="defense" value="<%=Pokemon.stats.defense%>"/><br/>
-          <label>SpAtt:</label><input type="text" placeholder="SpAttack" name="spattack" value="<%=Pokemon.stats.spattack%>"/><br/>
-          <label>SpDef:</label><input type="text" placeholder="SpDefense" name="spdefense" value="<%=Pokemon.stats.spdefense%>"/><br/>
-          <label>Speed:</label><input type="text" placeholder="Speed" name="speed" value="<%=Pokemon.stats.speed%>"/><br/>
-          <input class = "save"  type="submit" value="Save Changes"/>
-      </form>
-    </div>
+
+<body>
+  <div class="pokemon-head">
+    <h1>
+      <%=Pokemon.name%>
+    </h1>
+    <img src="<%=Pokemon.img%>"></img>
+    <h4>ID: <%=Pokemon.id%>
+    </h4>
+    <button class="button"><a href="/">Back to Pokedex</a></button>
+    <form id="delete" action="/<%=Pokemon._id%>?_method=DELETE" method="POST">
+      <input class="delete-button" type="submit" value="Delete" />
+    </form>
   </div>
-  </body>
+  <div id="edit-container">
+    <form id="edit-form" action="/<%=Pokemon._id%>?_method=PUT" method="POST">
+      <label>Name:</label><input type="text" name="name" value="<%=Pokemon.name%>" /><br />
+      <label>Image:</label><input type="url" placeholder="Image URL" name="img" value="<%=Pokemon.img%>" /><br />
+      <label>Type:</label><input type="text" placeholder="Type" name="type" value="<%=Pokemon.type%>" /><br />
+      <label>HP:</label><input type="text" placeholder="HP" name="hp" value="<%=Pokemon.stats.hp%>" /><br />
+      <label>Att:</label><input type="text" placeholder="Attack" name="attack"
+        value="<%=Pokemon.stats.attack%>" /><br />
+      <label>Def:</label><input type="text" placeholder="Defense" name="defense"
+        value="<%=Pokemon.stats.defense%>" /><br />
+      <label>SpAtt:</label><input type="text" placeholder="SpAttack" name="spattack"
+        value="<%=Pokemon.stats.spattack%>" /><br />
+      <label>SpDef:</label><input type="text" placeholder="SpDefense" name="spdefense"
+        value="<%=Pokemon.stats.spdefense%>" /><br />
+      <label>Speed:</label><input type="text" placeholder="Speed" name="speed" value="<%=Pokemon.stats.speed%>" /><br />
+      <input class="save" type="submit" value="Save Changes" />
+    </form>
+  </div>
+  </div>
+</body>
+
 </html>

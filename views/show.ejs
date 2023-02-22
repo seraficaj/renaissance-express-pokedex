@@ -1,64 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
   <link rel="stylesheet" href="styles.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-    </style>
-  <title>Pokedex: <%=Pokemon.name%></title>
+  </style>
+  <title>Pokemon Show
+  </title>
 </head>
-  <body
-  <% for (let i = 0; i < Pokemon.type.length; i++) { %>
-      <% if (Pokemon.type[i] === 'Grass' || Pokemon.type[i] === 'Bug' || Pokemon.type[i] === 'Poison') { %>
-        style='background-color: green'
-      <% } else if (Pokemon.type[i] === 'Water') { %>
-        style='background-color: lightblue'
-      <% } else if (Pokemon.type[i] === 'Psychic') { %>
-        style='background-color: purple'  
-      <% } else if (Pokemon.type[i] === 'Electric') { %>
-        style='background-color: yellow'
-      <% } else if (Pokemon.type[i] === 'Ground' || Pokemon.type[i] === 'Fighting') { %>
-        style='background-color: rgb(62, 35, 35)'
-      <% } else if (Pokemon.type[i] === 'Fire') { %>
-        style='background-color: red'
-      <% } else { %>
-        style='background-color: lightgray'
-      <% } %> 
-  <% } %>
-  >
-    <div id="show-container">
-    <div class="pokemon-head">
-      <h1><%=Pokemon.name%></h1>
-      <img src="<%=Pokemon.img%>"></img>
-      <h4>ID: <%=Pokemon.id%></h4>
-      <button><a href="/">Back to Pokedex</a></button>
-      <button><a href="/<%=Pokemon._id%>/edit">Edit</a></button>
-      <form id="delete" action="/<%=Pokemon._id%>?_method=DELETE" method="POST">
-        <input class="button" type="submit" value="Delete"/>
-      </form>
-    </div>
-    <div class="types">
-    <ul> Type(s): 
-        <% for (let i = 0; i < Pokemon.type.length; i++) { %>
-      <li>
-        <%=Pokemon.type[i]%>
-      </li>
-    <% } %>
-    </ul>
-    </div>
-    <div class="stats">
-      <ul> Stats: 
-        <li>HP: <%=Pokemon.stats.hp%></li>
-        <li>Attack: <%=Pokemon.stats.attack%></li>
-        <li>Defense: <%=Pokemon.stats.defense%></li>
-        <li>SpAttack: <%=Pokemon.stats.spattack%></li>
-        <li>SpDefense: <%=Pokemon.stats.spdefense%></li>
-        <li>Speed: <%=Pokemon.stats.speed%></li>
-      </ul>
-  </div>
-</div>
-  </body>
+
+<body <% for (let i=0; i < pokemon.type.length; i++) { %>
+  <% if (pokemon.type[i]==='Grass' || pokemon.type[i]==='Bug' || pokemon.type[i]==='Poison' ) { %>
+    style='background-color: green'
+    <% } else if (pokemon.type[i]==='Water' ) { %>
+      style='background-color: lightblue'
+      <% } else if (pokemon.type[i]==='Psychic' ) { %>
+        style='background-color: purple'
+        <% } else if (pokemon.type[i]==='Electric' ) { %>
+          style='background-color: yellow'
+          <% } else if (pokemon.type[i]==='Ground' || pokemon.type[i]==='Fighting' ) { %>
+            style='background-color: rgb(62, 35, 35)'
+            <% } else if (pokemon.type[i]==='Fire' ) { %>
+              style='background-color: red'
+              <% } else { %>
+                style='background-color: lightgray'
+                <% } %>
+                  <% } %>
+                    >
+                    <div id="show-container">
+                      <div class="pokemon-head">
+                        <h1>
+                          <%=pokemon.name%>
+                        </h1>
+                        <img src="<%=pokemon.img%>"></img>
+                        <h4>ID: <%=pokemon.id%>
+                        </h4>
+                        <button><a href="/">Back to Pokedex</a></button>
+                        <button><a href="/<%=pokemon._id%>/edit">Edit</a></button>
+                        <form id="delete" action="/<%=pokemon._id%>?_method=DELETE" method="POST">
+                          <input class="button" type="submit" value="Delete" />
+                        </form>
+                      </div>
+                      <div class="types">
+                        <ul> Type(s):
+                          <% for (let i=0; i < pokemon.type.length; i++) { %>
+                            <li>
+                              <%=pokemon.type[i]%>
+                            </li>
+                            <% } %>
+                        </ul>
+                      </div>
+                      <div class="stats">
+                        <ul> Stats:
+                          <li>HP: <%=pokemon.stats.hp%>
+                          </li>
+                          <li>Attack: <%=pokemon.stats.attack%>
+                          </li>
+                          <li>Defense: <%=pokemon.stats.defense%>
+                          </li>
+                          <li>SpAttack: <%=pokemon.stats.spattack%>
+                          </li>
+                          <li>SpDefense: <%=pokemon.stats.spdefense%>
+                          </li>
+                          <li>Speed: <%=pokemon.stats.speed%>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+</body>
+
 </html
