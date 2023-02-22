@@ -21,23 +21,27 @@ app.get("/pokeseed", (req, res) => {
   });
 });
 
-//==SHOW
-
-app.get("/:id", (req, res) => {
-  Pokemon.findById(req.params.id, (err, currentPokemon) => {
-    console.log(currentPokemon);
-    res.render("show.ejs", {
-      pokemon: currentPokemon,
-    });
-  });
-});
-
 //===GET
 
 app.get("/", (req, res) => {
   Pokemon.find({}, (err, allPokemon) => {
+    if (err) console.log(err);
     console.log(allPokemon);
     res.render("index.ejs", { allPokemon });
+  });
+});
+
+//==SHOW
+
+app.get("/:id", (req, res) => {
+  Pokemon.findById(req.params.id, (err, currentPokemon) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log(currentPokemon);
+    res.render("show.ejs", {
+      pokemon: currentPokemon,
+    });
   });
 });
 
